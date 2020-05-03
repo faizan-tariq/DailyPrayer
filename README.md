@@ -1,4 +1,4 @@
 # DailyPrayer
-<img src="https://faizan-tariq.github.io/DailyPrayer/img1.png" width="400"/>
-<img src="https://faizan-tariq.github.io/DailyPrayer/img2.png" width="400"/>
+<img src="https://github.com/faizan-tariq/DailyPrayer/blob/master/img1.jpg" width="400"/>
+<img src="https://github.com/faizan-tariq/DailyPrayer/blob/master/img2.jpg" width="400"/>
 
