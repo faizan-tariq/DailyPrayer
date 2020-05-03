@@ -1,0 +1,68 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Schedule reminders for daily prayer and play Azaan (For Bentonville Only)",
+          "examplePhrases": [
+            "Alexa, open daily prayer"
+          ],
+          "keywords": [
+            "Azaan",
+            "Reminder",
+            "Daily",
+            "Prayer",
+            "Namaz",
+            "Reminder",
+            "Daily",
+            "Namaz"
+          ],
+          "name": "Daily Prayer",
+          "description": "Schedule reminders for daily prayer when you say setup and play Azaan when you say listen.",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        }
+      },
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Only need reminder read write permission.",
+      "category": "ALARMS_AND_CLOCKS",
+      "distributionCountries": [
+        "US",
+        "PK"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:396435065036:function:132b2242-120a-45bd-b8eb-717b6ea9bd62:Release_0"
+        },
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
+      }
+    },
+    "permissions": [
+      {
+        "name": "alexa::alerts:reminders:skill:readwrite"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-US": {
+          "termsOfUseUrl": "https://github.com/faizan-tariq",
+          "privacyPolicyUrl": "https://github.com/faizan-tariq"
+        }
+      },
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
