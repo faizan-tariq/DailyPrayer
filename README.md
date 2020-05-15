@@ -1,5 +1,7 @@
 # DailyPrayer
 
+Skill is certified and approved by Amazon and available [here](https://www.amazon.com/Default-User-Daily-Prayer/dp/B088KG5VWL/ref=sr_1_7?dchild=1&keywords=daily+prayer&qid=1589575052&s=digital-skills&sr=1-7).
+
 * NodeJs AWS Lambda cloud code
 * AWS CloudWatch for logging
 
