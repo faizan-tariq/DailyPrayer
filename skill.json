@@ -37,7 +37,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:us-east-1:396435065036:function:132b2242-120a-45bd-b8eb-717b6ea9bd62:Release_0"
+          "uri": "arn:aws:lambda:us-east-1:396435065036:function:132b2242-120a-45bd-b8eb-717b6ea9bd62:Release_1"
         },
         "interfaces": [
           {

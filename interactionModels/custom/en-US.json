@@ -31,6 +31,7 @@
           "name": "setupIntent",
           "slots": [],
           "samples": [
+            "set up",
             "setup"
           ]
         },
@@ -45,5 +46,5 @@
       "types": []
     }
   },
-  "version": "24"
+  "version": "27"
 }
