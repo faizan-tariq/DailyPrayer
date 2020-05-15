@@ -3,6 +3,48 @@ const moment = require('moment-timezone');
 const requiredPermissions = ['alexa::alerts:reminders:skill:readwrite'];
 const axios = require('axios');
 
+const CancelAndStopIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
+                || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
+    },
+    handle(handlerInput) {
+        const speakOutput = 'Take care, Allah Haafiz';
+        return handlerInput.responseBuilder
+            .speak(speakOutput).addAudioPlayerStopDirective()
+            .getResponse();
+    }
+};
+
+const HelpIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'You can say setup or listen! If you have not yet schedule prayer notifications for today then say setup or if you want to listen Azaan then say listen. How can I help?';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+};
+
+const pauseIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.PauseIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'You cannot pause Azaan. Say Alexa, cancel to quit';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .getResponse();
+    }
+};
+
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
@@ -39,7 +81,7 @@ const SetupRequestHandler = {
     
         if(!permissions) {
             return responseBuilder
-            .speak('Please go to Alexa mobile app to grant permissions!')
+            .speak('Please go to Alexa mobile app to grant reminders permission. This will allow me to create and edit reminders for daily prayer notifications.')
             .withAskForPermissionsConsentCard(requiredPermissions)
             .getResponse();
         } else {
@@ -101,7 +143,7 @@ const SetupRequestHandler = {
 
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
-        LaunchRequestHandler, SetupRequestHandler, ListenRequestHandler
+        LaunchRequestHandler, SetupRequestHandler, ListenRequestHandler, HelpIntentHandler, CancelAndStopIntentHandler, pauseIntentHandler
     )
     .withApiClient(new Alexa.DefaultApiClient())
     .lambda();
